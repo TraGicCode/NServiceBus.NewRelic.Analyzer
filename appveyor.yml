@@ -1,0 +1,35 @@
+version: 1.0.{build}-beta
+image: Visual Studio 2017
+configuration: Release
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+install:
+  - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
+before_build:
+  - cmd: nuget restore
+  - cmd: dotnet restore
+  - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
+
+build_script: 
+  - msbuild NServiceBus.NewRelic.Analyzer.sln /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
+  - dotnet test --no-restore --no-build
+artifacts:
+  - path: NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Vsix\bin\Release\*\NServiceBus.NewRelic.Analyzer.Vsix.vsix
+    name: NServiceBus.NewRelic.Analyzer.vsix
+  - path: NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Package\bin\Release\NServiceBus.NewRelic.Analyzer.*.nupkg
+    name: NServiceBus.NewRelic.Analyzer.nupkg
+deploy:
+  provider: NuGet
+  api_key:
+    secure: 8v7kxS3JrrBgMLXNM8wnl4JAkAnqW3R9D4eVnqND9RsXNYGStmoDRo6ZWguydPWS
+  skip_symbols: false
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  artifact: /.*(\.|\.s)nupkg/
+  on:
+    appveyor_repo_tag: true        # deploy only on tag push
