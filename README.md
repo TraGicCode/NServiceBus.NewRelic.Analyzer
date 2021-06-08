@@ -75,8 +75,6 @@ namespace NServiceBus.OrderingEndpoint.Handlers
 
 ### Before
 
-### After
-
 ```c#
 using System;
 using System.Threading.Tasks;
@@ -163,7 +161,7 @@ namespace NServiceBus.OrderingEndpoint.Handlers
 ## Limitations
 
 - Only the code within your handler is part of the transaction
-   - Behaviors and parts of the pipeline that happen before and after your handler is invoked is not included
+   - Behaviors and parts of the pipeline that happen before and after your handler is invoked are not included as part of the NewRelic transaction.
 
 
 ## Contributing
