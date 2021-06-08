@@ -1,5 +1,11 @@
 version: 1.0.{build}-beta
 image: Visual Studio 2017
+init:
+- ps: |-
+    if ($env:APPVEYOR_REPO_TAG -eq "true")
+    {
+        Update-AppveyorBuild -Version "$env:APPVEYOR_REPO_TAG_NAME"
+    }
 configuration: Release
 dotnet_csproj:
   patch: true
