@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.NewRelic.Analyzer", "NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.csproj", "{4F303D71-8DA4-485E-AE5A-4EE74EB10C47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.NewRelic.Analyzer.CodeFixes", "NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.CodeFixes\NServiceBus.NewRelic.Analyzer.CodeFixes.csproj", "{99B1F1E1-86A8-4C6F-B566-4F80C14726FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.NewRelic.Analyzer.Package", "NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Package\NServiceBus.NewRelic.Analyzer.Package.csproj", "{EA4AA2AA-ED56-40CE-B65E-9B06B7426377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.NewRelic.Analyzer.Test", "NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Test\NServiceBus.NewRelic.Analyzer.Test.csproj", "{5751C4C6-1ADC-415D-9D8D-3C589397B333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBus.NewRelic.Analyzer.Vsix", "NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Vsix\NServiceBus.NewRelic.Analyzer.Vsix.csproj", "{285CDF6D-EBD9-4748-BA08-A5925461B2E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F303D71-8DA4-485E-AE5A-4EE74EB10C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F303D71-8DA4-485E-AE5A-4EE74EB10C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F303D71-8DA4-485E-AE5A-4EE74EB10C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F303D71-8DA4-485E-AE5A-4EE74EB10C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99B1F1E1-86A8-4C6F-B566-4F80C14726FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99B1F1E1-86A8-4C6F-B566-4F80C14726FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99B1F1E1-86A8-4C6F-B566-4F80C14726FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99B1F1E1-86A8-4C6F-B566-4F80C14726FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4AA2AA-ED56-40CE-B65E-9B06B7426377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4AA2AA-ED56-40CE-B65E-9B06B7426377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4AA2AA-ED56-40CE-B65E-9B06B7426377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4AA2AA-ED56-40CE-B65E-9B06B7426377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5751C4C6-1ADC-415D-9D8D-3C589397B333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5751C4C6-1ADC-415D-9D8D-3C589397B333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5751C4C6-1ADC-415D-9D8D-3C589397B333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5751C4C6-1ADC-415D-9D8D-3C589397B333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285CDF6D-EBD9-4748-BA08-A5925461B2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285CDF6D-EBD9-4748-BA08-A5925461B2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285CDF6D-EBD9-4748-BA08-A5925461B2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285CDF6D-EBD9-4748-BA08-A5925461B2E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C89B706-9AC1-4541-A066-C0A4BD951D98}
+	EndGlobalSection
+EndGlobal
