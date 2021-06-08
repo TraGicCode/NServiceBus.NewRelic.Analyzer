@@ -10,16 +10,15 @@
   <PropertyGroup>
     <PackageId>NServiceBus.NewRelic.Analyzer</PackageId>
     <PackageVersion>1.0.0.0</PackageVersion>
-    <Authors>michaelf</Authors>
-    <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
-    <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
-    <PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
-    <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
+    <Authors>TraGicCode</Authors>
+    <PackageLicenseUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer</PackageProjectUrl>
+    <PackageIconUrl>http://newrelic.com/images/avatar-newrelic.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>NServiceBus.NewRelic.Analyzer</Description>
-    <PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+    <Description>A Roslyn Diagnostic Analyzer and corresponding Code Fix identify and automatically add NewRelic.Agent.Api [Transaction] attributes to all NServiceBus v6+ related message handlers.</Description>
     <Copyright>Copyright</Copyright>
-    <PackageTags>NServiceBus.NewRelic.Analyzer, analyzers</PackageTags>
+    <PackageTags>NServiceBus.NewRelic.Analyzer, analyzers, roslyn, newrelic, nservicebus</PackageTags>
     <DevelopmentDependency>true</DevelopmentDependency>
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
