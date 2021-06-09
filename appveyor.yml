@@ -31,11 +31,19 @@ artifacts:
   - path: NServiceBus.NewRelic.Analyzer\NServiceBus.NewRelic.Analyzer.Package\bin\Release\NServiceBus.NewRelic.Analyzer.*.nupkg
     name: NServiceBus.NewRelic.Analyzer.nupkg
 deploy:
-  provider: NuGet
-  api_key:
-    secure: 8v7kxS3JrrBgMLXNM8wnl4JAkAnqW3R9D4eVnqND9RsXNYGStmoDRo6ZWguydPWS
-  skip_symbols: false
-  symbol_server:           # remove to push symbols to SymbolSource.org
-  artifact: /.*(\.|\.s)nupkg/
-  on:
-    appveyor_repo_tag: true        # deploy only on tag push
+  - provider: NuGet
+    api_key:
+      secure: 8v7kxS3JrrBgMLXNM8wnl4JAkAnqW3R9D4eVnqND9RsXNYGStmoDRo6ZWguydPWS
+    skip_symbols: false
+    symbol_server:           # remove to push symbols to SymbolSource.org
+    artifact: /.*(\.|\.s)nupkg/
+    on:
+      appveyor_repo_tag: true        # deploy only on tag push
+  - provider: GitHub
+    description: Automatically created by AppVeyor.
+    auth_token:
+      secure: s39ckGvRShV6HXhGpbmkpl/XnRUjNQ7NweZBEj4EQ+uzn/cB0LbS4b8/kekJtaKE
+    artifact: NuGet
+    draft: true
+    on:
+      appveyor_repo_tag: true
