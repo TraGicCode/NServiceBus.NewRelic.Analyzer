@@ -1,7 +1,8 @@
 # NServiceBus.NewRelic.Analyzer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/h21sli3jkumuswyi?svg=true)](https://ci.appveyor.com/project/TraGicCode/nservicebus-newrelic-analyzer)
+[![Build status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva/branch/master?svg=true)](https://ci.appveyor.com/project/TraGicCode/nservicebus-newrelic-analyzer)
 ![Nuget](https://img.shields.io/nuget/v/NServiceBus.NewRelic.Analyzer)
+![Nuget downloads](https://img.shields.io/nuget/dt/NServiceBus.NewRelic.Analyzer)
 [![License](https://img.shields.io/github/license/tragiccode/nservicebus.newrelic.analyzer.svg)](https://github.com/tragiccode/nservicebus.newrelic.analyzer/blob/master/LICENSE.txt)
 
 #### Table of Contents
