@@ -5,6 +5,8 @@ branches:
   only:
     - /\d+\.\d+\.\d+/
 
+skip_branch_with_pr: true
+
 init:
 - ps: |-
     if ($env:APPVEYOR_REPO_TAG -eq "true")
