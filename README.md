@@ -82,7 +82,7 @@ using System.Threading.Tasks;
 using NewRelic.Api.Agent;
 using NServiceBus;
 
-namespace NServiceBus.OrderingEndpoint.Handlers
+rviceBus.OrderingEndpoint.Handlers
 {
     public class MySaga :
         Saga<SagaData>,
