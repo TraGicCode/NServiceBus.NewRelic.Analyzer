@@ -1,5 +1,8 @@
 version: 1.0.{build}-beta
 image: Visual Studio 2017
+
+skip_branch_with_pr: true
+
 init:
 - ps: |-
     if ($env:APPVEYOR_REPO_TAG -eq "true")
