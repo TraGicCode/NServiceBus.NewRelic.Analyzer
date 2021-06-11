@@ -1,10 +1,6 @@
 version: 1.0.{build}-beta
 image: Visual Studio 2017
 
-branches:
-  only:
-    - /\d+\.\d+\.\d+/
-
 skip_branch_with_pr: true
 
 init:
