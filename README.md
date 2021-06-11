@@ -15,21 +15,21 @@
 ## Description
 
 A Roslyn Diagnostic Analyzer and corresponding Code Fix identify and automatically add NewRelic.Agent.Api [Transaction] attributes to all NServiceBus v6+ related message handlers.
+Available via NuGet at https://www.nuget.org/packages/NServiceBus.NewRelic.Analyzer
 
 ## Why do you need this
 
 The .NET NewRelic agent automatically instruments certain application frameworks ( as indicated https://docs.newrelic.com/docs/agents/net-agent/getting-started/net-agent-compatibility-requirements-net-framework/#messaging ).  NServiceBus
-was one of these.  Unfortunately, when NServiceBus rewrote their whole message handling pipeline to ensure async/await was a first class citizen, this broken the automatic instrumentation that the newrelic engineers wrote. This means,
-when upgrading from NServiceBus to V6+ NewRelic will no longer create transactions for you.
+was one of these.  Unfortunately, when NServiceBus rewrote their whole message handling pipeline to ensure async/await was a first class citizen, this broke the automatic instrumentation that the NewRelic engineers wrote. This means that when upgrading NServiceBus to V6+ NewRelic will no longer create transactions for you.
 
-The goal of this Analyzer is to have a "reasonable" workaround until the below feature request/issue is resolved by the newrelic engineers. 
+The goal of this Analyzer is to have a reasonable workaround until the below feature request/issue is resolved by the NewRelic engineers. 
 
 NewRelic Feature Request:
 https://discuss.newrelic.com/t/feature-idea-add-support-for-nservicebus-version-6/44006
 
 ## How it works
 
-Just like you should be monitoring all web requests to your application you should be doing the same for all incoming messages to your nservicebus endpoint.  Below shows the before and after the code fix is applied from this analyzer.
+Just like you should be monitoring all web requests to your application, you should be doing the same for all incoming messages to your NServiceBus endpoint.  Below shows the code before and after the code fix is applied from this analyzer.
 
 ## Message Handlers
 
