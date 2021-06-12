@@ -8,17 +8,16 @@ namespace NServiceBus.NewRelic.Analyzer
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class NServiceBusNewRelicAnalyzer : DiagnosticAnalyzer
     {
-        public static string DiagnosticId = "NSBNR0001";
+        public const string DiagnosticId = "NSBNR0001";
 
         private static readonly string Title =
-            "Use NewRelic [Transaction] Attribute on NServiceBus Message Handler.";
+            "Use NewRelic [Transaction] Attribute on NServiceBus Message Handler";
 
         private static readonly string MessageFormat =
-            "Consider using NewRelic [Transaction] Attribute on the NServiceBus Message Handler.";
+            "Consider using NewRelic [Transaction] Attribute on the NServiceBus Message Handler";
 
         private static readonly string Description =
-            "NewRelic doesn't integrate automatically with NServiceBus v6+.\r\n"
-            + "so transactions wont show up by default. The best thing we can do as of now is add NewRelic [Transaction] Attributes";
+            "NewRelic doesn't automatically instrument with NServiceBus v6+ message handlers as transactions. The best thing we can do as of now is add NewRelic [Transaction] Attributes.";
 
         private const string Category = "Monitoring";
 
