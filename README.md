@@ -10,6 +10,8 @@
 1. [Description](#description)
 1. [Why do you need this?](#why-do-you-need-this)
 1. [How it works](#how-it-works)
+1. [Limitations](#limitations)
+1. [Build Agent Requirements](#build-agent-requirements)
 1. [Development - Guide for contributing to the module](#contributing)
 
 ## Description
@@ -164,6 +166,21 @@ namespace NServiceBus.OrderingEndpoint.Handlers
 - Only the code within your handler is part of the transaction
    - Behaviors and parts of the pipeline that happen before and after your handler is invoked are not included as part of the NewRelic transaction.
 
+
+## Build Agent Requirements
+
+In order to have the roslyn analyzer show up was warnings/errors as part of your build you will need to ensure the following:
+
+1. At least Visual Studio 2019 build tools are installed.
+2. Run your build using msbuild v16.0 ( installed from step 1 )
+
+The build will either not show any analyzer warnings OR you will receive the following error on warning on build.
+
+```c#
+CSC : warning CS8032: An instance of analyzer NServiceBus.NewRelic.Analyzer.NServiceBusNewRelicAnalyzer cannot be created from C:\BuildAgent\work\9b7caaa76a57f65c\packages\NServiceBus.NewRelic.Analyzer.1.0.1\analyzers\dotnet\cs\NServiceBus.NewRelic.Analyzer.dll : 
+Could not load file or assembly 'Microsoft.CodeAnalysis, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.. 
+[C:\BuildAgent\work\9b7caaa76a57f65c\TestAnalysisBuild\TestAnalysisBuild.csproj]
+```
 
 ## Contributing
 
