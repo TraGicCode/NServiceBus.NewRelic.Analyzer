@@ -45,4 +45,14 @@
     <ProjectReference Update="@(ProjectReference)" Name="%(Filename)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\images\newrelic-icon.png">
+      <Link>newrelic-icon.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+
+  
+
 </Project>

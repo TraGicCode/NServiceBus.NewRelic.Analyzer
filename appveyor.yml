@@ -23,6 +23,7 @@ install:
 before_build:
   - cmd: nuget restore
   - cmd: dotnet restore
+  - ps: 
   - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
 
 build_script: 
