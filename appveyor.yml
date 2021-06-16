@@ -40,7 +40,6 @@ deploy:
     symbol_server:           # remove to push symbols to SymbolSource.org
     artifact: /.*(\.|\.s)(nupkg)/
     on:
-      branch: master-test
       appveyor_repo_tag: true        # deploy only on tag push
   - provider: GitHub
     description: Automatically created by AppVeyor.
