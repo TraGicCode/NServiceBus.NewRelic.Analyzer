@@ -13,7 +13,7 @@
     <Authors>TraGicCode</Authors>
     <PackageLicenseUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer</PackageProjectUrl>
-    <PackageIconUrl>http://newrelic.com/images/avatar-newrelic.png</PackageIconUrl>
+    <PackageIconUrl>newrelic-icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/TraGicCode/NServiceBus.NewRelic.Analyzer</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>A Roslyn Diagnostic Analyzer and corresponding Code Fix identify and automatically add NewRelic.Agent.Api [Transaction] attributes to all NServiceBus v6+ related message handlers.</Description>
@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
+    <None Include="..\..\images\newrelic-icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
