@@ -23,9 +23,7 @@ install:
 before_build:
   - cmd: nuget restore
   - cmd: dotnet restore
-  - ps: 
   - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
-
 build_script: 
   - msbuild NServiceBus.NewRelic.Analyzer.sln /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
   - dotnet test --no-restore --no-build
@@ -40,14 +38,15 @@ deploy:
       secure: 8v7kxS3JrrBgMLXNM8wnl4JAkAnqW3R9D4eVnqND9RsXNYGStmoDRo6ZWguydPWS
     skip_symbols: false
     symbol_server:           # remove to push symbols to SymbolSource.org
-    artifact: /.*(\.|\.s)nupkg/
+    artifact: /.*(\.|\.s)(nupkg)/
     on:
+      branch: master-test
       appveyor_repo_tag: true        # deploy only on tag push
   - provider: GitHub
     description: Automatically created by AppVeyor.
     auth_token:
       secure: s39ckGvRShV6HXhGpbmkpl/XnRUjNQ7NweZBEj4EQ+uzn/cB0LbS4b8/kekJtaKE
-    artifact: NuGet
+    artifact: /.*(\.|\.s)(nupkg|vsix)/
     draft: true
     on:
-      appveyor_repo_tag: true
+      appveyor_repo_tag: true        # deploy only on tag push
