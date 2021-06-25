@@ -21,7 +21,6 @@ dotnet_csproj:
 install:
   - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
 before_build:
-  - cmd: nuget restore
   - cmd: dotnet restore
   - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
 build_script: 
