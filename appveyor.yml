@@ -1,5 +1,5 @@
 version: 1.0.{build}-beta
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 skip_branch_with_pr: true
 
@@ -21,7 +21,6 @@ dotnet_csproj:
 install:
   - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
 before_build:
-  - cmd: nuget restore
   - cmd: dotnet restore
   - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
 build_script: 
