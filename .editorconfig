@@ -1,0 +1,10 @@
+[*.cs]
+
+dotnet_analyzer_diagnostic.severity = default
+
+#### Core EditorConfig Options ####
+
+# Indentation and spacing
+indent_size = 4
+indent_style = space
+tab_width = 4
