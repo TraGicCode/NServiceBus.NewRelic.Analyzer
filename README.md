@@ -182,6 +182,8 @@ Could not load file or assembly 'Microsoft.CodeAnalysis, Version=3.3.0.0, Cultur
 [C:\BuildAgent\work\9b7caaa76a57f65c\TestAnalysisBuild\TestAnalysisBuild.csproj]
 ```
 
+Roslyn uses visual studio in order to load Microsoft.CodeAnalysis.  If you recieve the above error please visit this roslyn compatibility chart ( https://docs.microsoft.com/en-us/visualstudio/extensibility/roslyn-version-support?view=vs-2017) to understand what version of visual studio works with what version of roslyn.
+
 ## Contributing
 
 1. Fork it ( <https://github.com/tragiccode/NServiceBus.NewRelic.Analyzer/fork> )
