@@ -1,3 +1,7 @@
+# **DEPRECATED** - no longer actively maintained
+
+NewRelic has added NServiceBus V6+ Transaction and Distributed Tracing support in version v9.3.0 ( https://github.com/newrelic/newrelic-dotnet-agent/releases/tag/v9.3.0 ) of their .net agent.  Therefore, this project has been deprecated and should no longer be used.  
+
 # NServiceBus.NewRelic.Analyzer
 
 [![Build status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva/branch/master?svg=true)](https://ci.appveyor.com/project/TraGicCode/nservicebus-newrelic-analyzer)
