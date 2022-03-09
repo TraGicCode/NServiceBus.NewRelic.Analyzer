@@ -3,6 +3,7 @@ using System.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Entia.Analyze;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CodeActions;
 using Microsoft.CodeAnalysis.CodeFixes;
@@ -14,10 +15,7 @@ namespace NServiceBus.NewRelic.Analyzer
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(NServiceBusNewRelicAnalyzerCodeFixProvider)), Shared]
     public class NServiceBusNewRelicAnalyzerCodeFixProvider : CodeFixProvider
     {
-        public sealed override ImmutableArray<string> FixableDiagnosticIds
-        {
-            get { return ImmutableArray.Create(NServiceBusNewRelicAnalyzer.DiagnosticId); }
-        }
+        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(NServiceBusNewRelicAnalyzer.DiagnosticId);
 
         public sealed override FixAllProvider GetFixAllProvider()
         {
@@ -28,8 +26,7 @@ namespace NServiceBus.NewRelic.Analyzer
         public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
-
-            // TODO: Replace the following code with your own analysis, generating a CodeAction for each fix to suggest
+            
             var diagnostic = context.Diagnostics.First();
             var diagnosticSpan = diagnostic.Location.SourceSpan;
 
@@ -48,16 +45,34 @@ namespace NServiceBus.NewRelic.Analyzer
         private async Task<Solution> AddCustomAttribute(Document document, MethodDeclarationSyntax methodDeclaration, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken);
+            var model = await document.GetSemanticModelAsync(cancellationToken);
             var attributes = methodDeclaration.AttributeLists.Add(
                 SyntaxFactory.AttributeList(SyntaxFactory.SingletonSeparatedList<AttributeSyntax>(
-                    SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("NewRelic.Api.Agent.Transaction"))
+                    SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("Transaction"))
                 )));
+            var newRoot = root.ReplaceNode(
+                methodDeclaration,
+                methodDeclaration.WithAttributeLists(attributes));
+
+            if (RequiresUsing(model, root))
+            {
+                if(newRoot is CompilationUnitSyntax compilationUnitSyntax)
+                {
+                    newRoot = compilationUnitSyntax.AddUsings(CreateUsing());
+                }
+            }
 
             return document.WithSyntaxRoot(
-                root.ReplaceNode(
-                    methodDeclaration,
-                    methodDeclaration.WithAttributeLists(attributes)
-                )).Project.Solution;
+                newRoot).Project.Solution;
         }
+        
+
+        bool RequiresUsing(SemanticModel model, SyntaxNode root) =>
+                model.Compilation.GlobalNamespace?.Namespace("NewRelic")?.Namespace("Api")?.Namespace("Agent") is INamespaceSymbol @namespace &&
+                root.DescendantNodes().OfType<UsingDirectiveSyntax>().All(@using => !model.GetSymbolInfo(@using.Name).Symbol.Equals(@namespace, SymbolEqualityComparer.Default));
+
+
+        UsingDirectiveSyntax CreateUsing() => SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("NewRelic.Api.Agent"));
+
     }
 }
